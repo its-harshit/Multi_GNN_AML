@@ -6,6 +6,7 @@ from torch_geometric.data import Data, HeteroData
 from torch_geometric.loader import LinkNeighborLoader
 from sklearn.metrics import f1_score
 import json
+import os
 
 class AddEgoIds(BaseTransform):
     r"""Add IDs to the centre nodes of the batch.
@@ -29,7 +30,7 @@ class AddEgoIds(BaseTransform):
         
         return data
 
-def extract_param(parameter_name: str, args) -> float:
+def extract_param(parameter_name: str, args, file_path='./model_settings.json') -> float:
     """
     Extract the value of the specified parameter for the given model.
     
@@ -40,7 +41,8 @@ def extract_param(parameter_name: str, args) -> float:
     Returns:
     - float: Value of the specified parameter.
     """
-    file_path = './model_settings.json'
+    if not os.path.isfile(file_path):
+        file_path = '/kaggle/working/model_settings.json'
     with open(file_path, "r") as file:
         data = json.load(file)
 
