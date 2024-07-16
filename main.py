@@ -11,7 +11,7 @@ def main():
     parser = create_parser()
     args = parser.parse_args()
 
-    config_path = os.path.join(os.path.dirname(__file__),'dataconfig.json')
+    config_path = os.path.join(os.path.dirname(__file__),'data_config.json')
     with open(config_path, 'r') as config_file:
         config_data = config_file.read()
 
