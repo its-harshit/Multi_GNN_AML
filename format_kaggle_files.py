@@ -12,7 +12,7 @@ if n == 1:
     sys.exit()
 
 inPath = sys.argv[1]
-outPath = os.path.dirname(inPath) + "/formatted_transactions.csv"
+outPath = '/kaggle/working/formatted_transactions.csv'
 
 raw = dt.fread(inPath, columns = dt.str32)
 
