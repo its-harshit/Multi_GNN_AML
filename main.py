@@ -25,7 +25,7 @@ def main():
     logging.info("Retrieving data")
     t1 = time.perf_counter()
     
-    tr_data, val_data, te_data, tr_inds, val_inds, te_inds = get_data(args, data_config)
+    tr_data, val_data, te_data, tr_inds, val_inds, te_inds = get_data(args, config_path)
     
     t2 = time.perf_counter()
     logging.info(f"Retrieved data in {t2-t1:.2f}s")
@@ -33,11 +33,11 @@ def main():
     if not args.inference:
         #Training
         logging.info(f"Running Training")
-        train_gnn(tr_data, val_data, te_data, tr_inds, val_inds, te_inds, args, data_config)
+        train_gnn(tr_data, val_data, te_data, tr_inds, val_inds, te_inds, args, config_path)
     else:
         #Inference
         logging.info(f"Running Inference")
-        infer_gnn(tr_data, val_data, te_data, tr_inds, val_inds, te_inds, args, data_config)
+        infer_gnn(tr_data, val_data, te_data, tr_inds, val_inds, te_inds, args, config_path)
 
 if __name__ == "__main__":
     main()
