@@ -5,13 +5,15 @@ from data_loading import get_data
 from training import train_gnn
 from inference import infer_gnn
 import json
+import os
 
 def main():
     parser = create_parser()
     args = parser.parse_args()
 
-    with open('data_config.json', 'r') as config_file:
-        data_config = json.load(config_file)
+    config_path = os.path.join(os.path.dirname(__file__),'dataconfig.json')
+    with open(config_path, 'r') as config_file:
+        config_data = config_file.read()
 
     # Setup logging
     logger_setup()
