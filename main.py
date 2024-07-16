@@ -29,15 +29,16 @@ def main():
     
     t2 = time.perf_counter()
     logging.info(f"Retrieved data in {t2-t1:.2f}s")
+    print(f"preprocessing time = {t2-t1:.2f}")
 
-    if not args.inference:
-        #Training
-        logging.info(f"Running Training")
-        train_gnn(tr_data, val_data, te_data, tr_inds, val_inds, te_inds, args, config_path)
-    else:
-        #Inference
-        logging.info(f"Running Inference")
-        infer_gnn(tr_data, val_data, te_data, tr_inds, val_inds, te_inds, args, config_path)
+    # if not args.inference:
+    #     #Training
+    #     logging.info(f"Running Training")
+    #     train_gnn(tr_data, val_data, te_data, tr_inds, val_inds, te_inds, args, config_path)
+    # else:
+    #     #Inference
+    #     logging.info(f"Running Inference")
+    #     infer_gnn(tr_data, val_data, te_data, tr_inds, val_inds, te_inds, args, config_path)
 
 if __name__ == "__main__":
     main()
