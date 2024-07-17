@@ -42,7 +42,7 @@ def extract_param(parameter_name: str, args, file_path='./model_settings.json') 
     - float: Value of the specified parameter.
     """
     if not os.path.isfile(file_path):
-        file_path = '/kaggle/input/amlcode1314/model_settings.json'
+        file_path = '/kaggle/input/amlcode1516/model_settings.json'
     with open(file_path, "r") as file:
         data = json.load(file)
 
